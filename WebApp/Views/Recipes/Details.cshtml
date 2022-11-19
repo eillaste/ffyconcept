@@ -1,0 +1,76 @@
+@model BLL.App.DTO.Recipe
+
+@{
+    ViewData["Title"] = @Resources.Views.Shared._Layout.Details;
+}
+
+<h1>@Resources.Views.Shared._Layout.Details</h1>
+
+<div>
+    <h4>@Resources.Views.Shared._Layout.Recipe</h4>
+    <hr />
+    <dl class="row">
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AppUser)
+        </dt>*@
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AppUser!.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Instructions)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Instructions)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Servings)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Servings)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PrepTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PrepTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RestaurantRecipe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RestaurantRecipe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+    </dl>
+</div>
+
+                @if (User.IsInRole("customer"))
+                {
+                    <div>
+                     <a asp-action="Index">@Resources.Views.Shared._Layout.Index</a> |
+                     <a asp-action="RegisterMeal" asp-route-id="@Model.Id">@Resources.Views.Shared._Layout.RegisterMeal</a>
+                 </div>
+                 
+                }
+
+
+                @if (User.IsInRole("company"))
+                {
+                    <div>
+                     <a asp-action="Index">@Resources.Views.Shared._Layout.Index</a> |
+                         <a asp-action="Edit" asp-route-id="@Model.Id">@Resources.Views.Shared._Layout.Edit</a> 
+                 </div>
+                 
+                }
+

@@ -1,0 +1,148 @@
+@model WebApp.ViewModels.StatsIndexViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>@Resources.Views.Stats.Index.YourPersonalNutritionStatistics</h3>
+<br>
+<br>
+<h5>@Resources.Views.Stats.Index.DailyNutrientIntake</h5>
+<table class="table">
+    <thead>
+    <tr>
+        <td>
+            @Resources.Views.Stats.Index.Nutrient: 
+        </td>
+        @foreach (var item in Model.TolerableUpperIntakeLevels)
+        {
+            <th>
+                @Html.DisplayFor(modelItem => item.Key) (mg)
+                
+                @*@Html.DisplayFor(modelItem => item.Value)*@
+            </th>
+        }
+    </tr>
+
+    <tr>
+                    <td>
+                        @Resources.Views.Stats.Index.RecommendedIntakeLevel:  
+                    </td>
+        @foreach (var item in Model.PersonRecommendedUpperIntakeLevels)
+        {
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+                @*@Html.DisplayFor(modelItem => item.Value)*@
+            </td>
+        }
+    </tr>
+    <tr>
+                        <td>
+                            @Resources.Views.Stats.Index.ConsumedToday:
+                        </td>
+        @foreach (var item in Model.ConsumedNutrients) {
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+                @*@Html.DisplayFor(modelItem => item.Value)*@
+            </td>
+        }
+    </tr>
+        <tr>
+                <td>
+                    @Resources.Views.Stats.Index.TolerableUpperintakeLevel: 
+                </td>
+            @foreach (var item in Model.TolerableUpperIntakeLevels) {
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                    @*@Html.DisplayFor(modelItem => item.Value)*@
+                </td>
+            }
+        </tr>
+    
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<br>
+<hr>
+
+</hr>
+<br>
+
+<h5>@Resources.Views.Stats.Index.ConsumedFooditems</h5>
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+                @Resources.Views.Stats.Index.Fooditem
+            </th>
+                    <th>
+                            @Resources.Views.Stats.Index.Quantity (g)
+                        </th>
+    </tr>
+    </thead>
+        <tbody>
+    @foreach (var item in Model.ConsumedFoodItems) {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Key)
+                        
+                    </td>
+                                        <td>
+
+                                            @Html.DisplayFor(modelItem => item.Value)
+                                        </td>
+                </tr>
+            }
+
+    </tbody>
+</table>
+
+
+
+
+@*@foreach (var item in Model.TolerableUpperIntakeLevels) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Key)
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            $1$<td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Value)
+            </td>#1#
+            $1$<td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>#1#
+        </tr>
+    }
+        @foreach (var item in Model.TolerableUpperIntakeLevels) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Key)
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                $1$<td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>#1#
+                $1$<td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>#1#
+            </tr>
+        }*@

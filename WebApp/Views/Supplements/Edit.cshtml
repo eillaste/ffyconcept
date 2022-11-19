@@ -1,0 +1,39 @@
+@model WebApp.ViewModels.SupplementCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Supplement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Supplement.StandardUnit" class="control-label"></label>
+                <select asp-for="Supplement.StandardUnitId" class="form-control" asp-items="Model.StandardUnitSelectList"></select>
+                <span asp-validation-for="Supplement.StandardUnitId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Supplement.Title" class="control-label"></label>
+                <input asp-for="Supplement.Title" class="form-control" />
+                <span asp-validation-for="Supplement.Title" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="Supplement.Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

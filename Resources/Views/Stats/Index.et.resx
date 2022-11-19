@@ -1,0 +1,41 @@
+﻿<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="YourPersonalNutritionStatistics" xml:space="preserve">
+        <value>Teie isiklik toitumise statistika</value>
+    </data>
+    <data name="Nutrient" xml:space="preserve">
+        <value>Toitaine</value>
+    </data>
+    <data name="RecommendedIntakeLevel" xml:space="preserve">
+        <value>Soovituslik päevase tarbimise kogus</value>
+    </data>
+    <data name="ConsumedToday" xml:space="preserve">
+        <value>Täna tarbitud</value>
+    </data>
+    <data name="TolerableUpperintakeLevel" xml:space="preserve">
+        <value>Tarbimise ülempiir</value>
+    </data>
+    <data name="ConsumedFooditems" xml:space="preserve">
+        <value>Tarbitud toiduained</value>
+    </data>
+    <data name="Fooditem" xml:space="preserve">
+        <value>Toiduaine</value>
+    </data>
+    <data name="Quantity" xml:space="preserve">
+        <value>Kogus</value>
+    </data>
+    <data name="DailyNutrientIntake" xml:space="preserve">
+        <value>Päeva tarbimised</value>
+    </data>
+</root>

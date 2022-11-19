@@ -1,0 +1,42 @@
+@model BLL.App.DTO.Ingredient
+
+@{
+    ViewData["Title"] = @Resources.Views.Shared._Layout.Details;
+}
+
+<h1>@Resources.Views.Shared._Layout.Details</h1>
+
+<div>
+    <h4>@Resources.Views.Shared._Layout.Ingredient</h4>
+    <hr />
+    <dl class="row">
+        @*<dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AppUser)
+        </dt>*@
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AppUser!.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FoodItem)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FoodItemId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Recipe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Recipe!.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">@Resources.Views.Shared._Layout.Edit</a> |
+    <a asp-action="Index">@Resources.Views.Shared._Layout.Index</a>
+</div>

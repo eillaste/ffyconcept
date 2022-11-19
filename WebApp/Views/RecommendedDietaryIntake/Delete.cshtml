@@ -1,0 +1,45 @@
+@model BLL.App.DTO.RecommendedDietaryIntake
+
+@{
+    ViewData["Title"] = @Resources.Views.Shared._Layout.Delete;
+}
+
+<h1>@Resources.Views.Shared._Layout.Delete</h1>
+
+<h3>@Resources.Views.Shared._Layout.ConfirmDelete</h3>
+<div>
+    <h4>@Resources.Views.Shared._Layout.RecommendedDietaryIntake</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nutrient)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nutrient!.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AgeGroup)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.AgeGroup!.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@Resources.Views.Shared._Layout.Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">@Resources.Views.Shared._Layout.Index</a>
+    </form>
+</div>

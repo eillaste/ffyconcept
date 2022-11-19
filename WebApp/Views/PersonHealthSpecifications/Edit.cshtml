@@ -1,0 +1,49 @@
+@model WebApp.ViewModels.PersonHealthSpecificationCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>PersonHealthSpecification</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PersonHealthSpecification.HealthSpecificationId" class="control-label"></label>
+                <select asp-for="PersonHealthSpecification.HealthSpecificationId" class="form-control" asp-items="Model.HealthSpecificationSelectList"></select>
+                <span asp-validation-for="PersonHealthSpecification.HealthSpecificationId" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="PersonHealthSpecification.AppUserId" class="control-label"></label>
+                <select asp-for="PersonHealthSpecification.AppUserId" class="form-control" asp-items="ViewBag.AppUserId"></select>
+                <span asp-validation-for="PersonHealthSpecification.AppUserId" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="PersonHealthSpecification.Start" class="control-label"></label>
+                <input asp-for="PersonHealthSpecification.Start" class="form-control" />
+                <span asp-validation-for="PersonHealthSpecification.Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonHealthSpecification.End" class="control-label"></label>
+                <input asp-for="PersonHealthSpecification.End" class="form-control" />
+                <span asp-validation-for="PersonHealthSpecification.End" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="PersonHealthSpecification.Id" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

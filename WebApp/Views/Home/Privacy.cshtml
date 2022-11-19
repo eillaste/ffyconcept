@@ -1,0 +1,8 @@
+﻿@{
+    ViewData["Title"] = @Resources.Views.Shared._Layout.Privacy;
+}
+<h1>@ViewData["Title"]</h1>
+@Html.Raw(Extensions.Base.IdentityExtensions.GenerateJwt(User.Claims, "Ash nazg durbatuluk, ash nazg gimbatul, ash nazg thrakatuluk, agh burzum-ishi krimpatul", "itcollege.taltech.ee", "itcollege.taltech.ee", DateTime.Now.AddDays(30)))
+
+
+<p>@Resources.Views.Shared._Layout.MainContent</p>

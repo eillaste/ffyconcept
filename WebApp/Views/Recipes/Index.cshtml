@@ -1,0 +1,87 @@
+@model IEnumerable<BLL.App.DTO.Recipe>
+
+@{
+    ViewData["Title"] = "";
+}
+
+<h1>@Resources.Views.Shared._Layout.Recipes</h1>
+
+<p>
+    <a asp-action="Create">@Resources.Views.Shared._Layout.Create</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.AppUser)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Instructions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Servings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrepTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RestaurantRecipe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.AppUser!.Id)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Instructions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Servings)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrepTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RestaurantRecipe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            
+                            @if (User.IsInRole("customer"))
+                            {
+                                <td>
+                                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                                    <a asp-action="Details" asp-route-id="@item.Id">@Resources.Views.Shared._Layout.Details</a> 
+                                    @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
+                                </td>
+                             
+                            }
+            
+            
+                            @if (User.IsInRole("company"))
+                            {
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.Id">@Resources.Views.Shared._Layout.Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.Id">@Resources.Views.Shared._Layout.Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id">@Resources.Views.Shared._Layout.Delete</a>
+                                </td>
+                             
+                            }
+        </tr>
+}
+    </tbody>
+</table>

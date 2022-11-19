@@ -1,0 +1,46 @@
+@model WebApp.ViewModels.PersonHealthSpecificationCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PersonHealthSpecification</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PersonHealthSpecification.HealthSpecificationId" class="control-label"></label>
+                <select asp-for="PersonHealthSpecification.HealthSpecificationId" class ="form-control" asp-items="Model.HealthSpecificationSelectList"></select>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="AppUserId" class="control-label"></label>
+                <select asp-for="AppUserId" class ="form-control" asp-items="ViewBag.AppUserId"></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="PersonHealthSpecification.Start" class="control-label"></label>
+                <input asp-for="PersonHealthSpecification.Start" class="form-control" />
+                <span asp-validation-for="PersonHealthSpecification.Start" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonHealthSpecification.End" class="control-label"></label>
+                <input asp-for="PersonHealthSpecification.End" class="form-control" />
+                <span asp-validation-for="PersonHealthSpecification.End" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

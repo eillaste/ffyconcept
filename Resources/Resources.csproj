@@ -1,0 +1,183 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Views\Shared\_Layout.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>_Layout.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+<!--      <EmbeddedResource Update="Views\Shared\_Layout.et.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>_Layout.et.Designer.cs</LastGenOutput>
+      </EmbeddedResource>-->
+      <EmbeddedResource Update="Areas\Identity\Pages\Account\Login.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Login.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\Stats\Index.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Index.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\Recipe.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Recipe.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\Home\Privacy.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Privacy.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Views\AppUsers\Edit.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Edit.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\AppUser.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>AppUser.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\Ingredient.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Ingredient.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\StandardUnit.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>StandardUnit.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\AgeGroup.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>AgeGroup.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\Category.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Category.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\RecommendedDietaryIntake.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>RecommendedDietaryIntake.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\TolerableUpperIntakeLevel.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>TolerableUpperIntakeLevel.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\FoodItem.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>FoodItem.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\Nutrient.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>Nutrient.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\NutrientInFoodItem.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>NutrientInFoodItem.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\HealthSpecificationNutrient.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>HealthSpecificationNutrient.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="BLL.App.DTO\HealthSpecification.resx">
+        <Generator>PublicResXFileCodeGenerator</Generator>
+        <LastGenOutput>HealthSpecification.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\Shared\_Layout.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>_Layout.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Areas\Identity\Pages\Account\Login.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Login.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Stats\Index.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Index.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Recipe.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Recipe.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Views\Home\Privacy.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Privacy.resx</DependentUpon>
+      </Compile>
+      <Compile Update="Views\AppUsers\Edit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Edit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\AppUser.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AppUser.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Ingredient.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Ingredient.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\StandardUnit.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>StandardUnit.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\AgeGroup.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>AgeGroup.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Category.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Category.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\RecommendedDietaryIntake.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>RecommendedDietaryIntake.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\TolerableUpperIntakeLevel.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>TolerableUpperIntakeLevel.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\FoodItem.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>FoodItem.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\Nutrient.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>Nutrient.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\NutrientInFoodItem.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>NutrientInFoodItem.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\HealthSpecificationNutrient.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>HealthSpecificationNutrient.resx</DependentUpon>
+      </Compile>
+      <Compile Update="BLL.App.DTO\HealthSpecification.Designer.cs">
+        <DesignTime>True</DesignTime>
+        <AutoGen>True</AutoGen>
+        <DependentUpon>HealthSpecification.resx</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Domain.App" />
+    </ItemGroup>
+
+</Project>

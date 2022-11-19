@@ -1,0 +1,306 @@
+﻿@using Extensions.Base
+@using System.Globalization
+@using System.Threading
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ViewData["Title"] - Foodify</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>*@
+    <link rel="stylesheet" href="~/js/site.css" asp-append-version="true"/>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.WebApp</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                @if (User.IsInRole("company"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a>
+                    </li>
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Restaurants" asp-action="Index">Restaurants</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Menus" asp-action="Index">Menus</a>
+                    </li>*@
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Recipes" asp-action="Index">@Resources.Views.Shared._Layout.Recipes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Ingredients" asp-action="Index">@Resources.Views.Shared._Layout.Ingredients</a>
+                    </li>
+                    
+                }
+                @if (User.IsInRole("customer"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="AppUsers" asp-action="Edit"  asp-route-id="@User.GetUserId()!.Value">@Resources.Views.Shared._Layout.Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Recipes" asp-action="Index">@Resources.Views.Shared._Layout.Recipes</a>
+                    </li>
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="ConsumedFoodItems" asp-action="Index">ConsumedFoodItems</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="ConsumedNutrients" asp-action="Index">ConsumedNutrients</a>
+                    </li>*@
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="PersonRecommendedDietaryIntake" asp-action="Index">PersonRecommendedDietaryIntake</a>
+                    </li>*@
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Stats" asp-action="Index">@Resources.Views.Shared._Layout.Stats</a>
+                    </li>
+                    
+                }
+                
+                    @if (User.IsInRole("admin"))
+                    {
+                                      
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">@Resources.Views.Shared._Layout.Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">@Resources.Views.Shared._Layout.Privacy</a>
+                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="StandardUnits" asp-action="Index">@Resources.Views.Shared._Layout.StandardUnits</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="AgeGroups" asp-action="Index">@Resources.Views.Shared._Layout.AgeGroups</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">@Resources.Views.Shared._Layout.Categories</a>
+                    </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="RecommendedDietaryIntake" asp-action="Index">@Resources.Views.Shared._Layout.RecommendedDietaryIntakes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TolerableUpperIntakeLevels" asp-action="Index">@Resources.Views.Shared._Layout.TolerableUpperIntakeLevels</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Nutrients" asp-action="Index">@Resources.Views.Shared._Layout.Nutrients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="FoodItems" asp-action="Index">@Resources.Views.Shared._Layout.FoodItems</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="NutrientInFoodItem" asp-action="Index">@Resources.Views.Shared._Layout.NutrientInFoodItem</a>
+                        </li>
+                        @*<li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="HealthSpecificationNutrients" asp-action="Index">@Resources.Views.Shared._Layout.HealthSpecificationNutrients</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="NutrientInSupplement" asp-action="Index">@Resources.Views.Shared._Layout.NutrientInSupplement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="HealthSpecifications" asp-action="Index">@Resources.Views.Shared._Layout.HealthSpecifications</a>
+                        </li>*@
+
+                        
+                        
+                        
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Diets" asp-action="Index">Diets</a>
+                    </li>*@
+                    
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="DietaryRestrictions" asp-action="Index">DietaryRestrictions</a>
+                    </li>*@
+ 
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HealthSpecifications" asp-action="Index">HealthSpecifications</a>
+                    </li>*@
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="HealthSpecificationNutrients" asp-action="Index">HealthSpecificationNutrients</a>
+                    </li>*@
+
+   
+                    @*
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="NutrientInSupplement" asp-action="Index">NutrientInSupplement</a>
+                    </li>*@
+
+
+
+                        
+                        
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="State" asp-action="Index">States</a>
+                    </li>*@
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Supplements" asp-action="Index">Supplements</a>
+                    </li>*@
+                    @*<li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Tags" asp-action="Index">Tags</a>
+                    </li>*@
+
+
+                        
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Users
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                @*<a class="nav-link text-dark" asp-area="Admin" asp-controller="LangStrings" asp-action="Index">LangStrings</a>
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Translations" asp-action="Index">Translations</a>*@
+                                @*<a class="nav-link text-dark" asp-area="Admin" asp-controller="Roles" asp-action="Index">Users</a>*@
+                                <a class="nav-link text-dark" asp-area="Admin" asp-controller="Roles" asp-action="Index">Roles</a>
+                                <a class="nav-link text-dark"  asp-controller="AppUsers" asp-action="Index">Users</a>
+                            </div>
+                        </li>
+
+                    }
+                
+                <partial name="_LanguageSelection"/>
+
+                </ul>
+                <partial name="_LoginPartial"/>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <main role="main" class="pb-3">
+        @RenderBody()
+    </main>
+</div>
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2021 - @Resources.Views.Shared._Layout.WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy"> @Resources.Views.Shared._Layout.Privacy </a>
+    </div>
+</footer>
+@*<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
+
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/js/jquery.validate.globalize.js" asp-append-version="true"></script>
+@await RenderSectionAsync("Scripts", required: false)
+
+@{    
+	var currentCultureCode = Thread.CurrentThread.CurrentCulture.Name.Split('-')[0];
+
+    // map .net datetime format strings to flatpickr/momentjs format
+    
+    // https://flatpickr.js.org/formatting/
+    // d - day of month,2 digits
+    // j - day of month, no leading zero
+    // m - month, 2 digits
+    // n - mont, no leading zero
+    // y - 2 digit year, Y - 4 digit year
+    
+    // https://docs.microsoft.com/en-us/dotnet/api/system.globalization.datetimeformatinfo?view=netcore-3.1
+    // dd.MM.yyyy or dd/MM/yyyy
+    
+    var datePattern = Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortDatePattern;
+    datePattern = datePattern
+        .Replace("dd", "d")
+        .Replace("MM", "m")
+        .Replace("yyyy", "Y");
+
+    // LongTimePattern and ShortTimePattern HH:mm for 23:59,  h:mm tt for 11:59 PM
+    var timePattern = Thread.CurrentThread.CurrentUICulture.DateTimeFormat.ShortTimePattern;
+    var clock24H = timePattern.Contains("tt") == false;
+    timePattern = timePattern
+        .Replace("HH", "H")
+        .Replace("mm", "i")
+        .Replace("ss", "S")
+        .Replace("tt", "K");
+    var dateTimePattern = timePattern + " " + datePattern;
+}
+
+<script>
+    // https://github.com/globalizejs/globalize#installation
+    $.when(
+        $.get("/js/cldr-core/supplemental/likelySubtags.json", null, null, "json"),
+        $.get("/js/cldr-core/supplemental/numberingSystems.json", null, null, "json"),
+        $.get("/js/cldr-core/supplemental/timeData.json", null, null, "json"),
+        $.get("/js/cldr-core/supplemental/weekData.json", null, null, "json"),
+        
+        $.get("/js/cldr-numbers-modern/main/@currentCultureCode/numbers.json", null, null, "json"),
+        $.get("/js/cldr-numbers-modern/main/@currentCultureCode/currencies.json", null, null, "json"),
+        
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/ca-generic.json", null, null, "json"),
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/ca-gregorian.json", null, null, "json"),
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/dateFields.json", null, null, "json"),
+        $.get("/js/cldr-dates-modern/main/@currentCultureCode/timeZoneNames.json", null, null, "json")
+    ).then(function () {
+        return [].slice.apply(arguments, [0]).map(function (result) {
+            Globalize.load(result[0]);
+        });
+    }).then(function () {
+        // Initialise Globalize to the current culture
+        Globalize.locale('@currentCultureCode');
+    });
+    
+    $(function () {
+        $('[type="datetime-local"]').each(function (index, value) {
+            $(value).attr('type', 'text');
+            $(value).val(value.defaultValue);
+		    $(value).flatpickr({
+		        locale: "@currentCultureCode",
+		        enableTime: true,
+	    	    altFormat: "@dateTimePattern",
+	    	    altInput: true,
+	    	    // dateFormat: "Z", // iso format (causes -3h during summer)
+	    	    // use direct conversion, let backend deal with utc/whatever conversions
+	    	    dateFormat: "Y-m-d H:i:s",
+	    	    disableMobile: true,
+	    	    time_24hr: @(clock24H.ToString().ToLower()),
+		    });
+        });
+
+        $('[type="time"]').each(function (index, value) {
+            $(value).attr('type', 'text');
+            $(value).val(value.defaultValue);
+		    $(value).flatpickr({
+	    	    locale: "@currentCultureCode",
+	    	    enableTime: true,
+	    	    noCalendar: true,
+
+	    	    altFormat: "@timePattern",
+	    	    altInput: true,
+	    	    dateFormat: "H:i", // 24h HH:mm
+	    	    disableMobile: true,
+
+	    	    time_24hr: @(clock24H.ToString().ToLower()),
+		    });
+        });
+
+        $('[type="date"]').each(function (index, value) {
+		    $(value).attr('type', 'text');
+		    $(value).val(value.defaultValue);
+		    $(value).flatpickr({
+    		    locale: "@currentCultureCode",
+	    	    altFormat: "@datePattern",
+	    	    altInput: true,
+                disableMobile: true,
+	    	    dateFormat: "Y-m-d", // YYYY-MM-DD
+		    });
+        });
+    });
+</script>
+
+</body>
+</html>

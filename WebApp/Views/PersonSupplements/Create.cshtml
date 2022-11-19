@@ -1,0 +1,41 @@
+@model WebApp.ViewModels.PersonSupplementCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>PersonSupplement</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="AppUserId" class="control-label"></label>
+                <select asp-for="AppUserId" class ="form-control" asp-items="ViewBag.AppUserId"></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="PersonSupplement.SupplementId" class="control-label"></label>
+                <select asp-for="PersonSupplement.SupplementId" class ="form-control" asp-items="Model.SupplementSelectList"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonSupplement.Quantity" class="control-label"></label>
+                <input asp-for="PersonSupplement.Quantity" class="form-control" />
+                <span asp-validation-for="PersonSupplement.Quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,63 @@
+@model WebApp.ViewModels.RecipeCreateEditViewModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>@Resources.Views.Shared._Layout.Create</h1>
+
+<h4>@Resources.Views.Shared._Layout.Recipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Recipe.AppUserId" class="control-label"></label>
+                <select asp-for="Recipe.AppUserId" class ="form-control" asp-items="ViewBag.AppUserId"></select>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Recipe.Description" class="control-label"></label>
+                <input asp-for="Recipe.Description" class="form-control" />
+                <span asp-validation-for="Recipe.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recipe.Instructions" class="control-label"></label>
+                <input asp-for="Recipe.Instructions" class="form-control" />
+                <span asp-validation-for="Recipe.Instructions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recipe.Servings" class="control-label"></label>
+                <input asp-for="Recipe.Servings" class="form-control" />
+                <span asp-validation-for="Recipe.Servings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recipe.PrepTime" class="control-label"></label>
+                <input asp-for="Recipe.PrepTime" class="form-control" />
+                <span asp-validation-for="Recipe.PrepTime" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Recipe.RestaurantRecipe" /> @Html.DisplayNameFor(model => model.Recipe.RestaurantRecipe)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Recipe.Image" class="control-label"></label>
+                <input asp-for="Recipe.Image" class="form-control" />
+                <span asp-validation-for="Recipe.Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="@Resources.Views.Shared._Layout.Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">@Resources.Views.Shared._Layout.Index</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

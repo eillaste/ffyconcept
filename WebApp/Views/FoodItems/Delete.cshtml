@@ -1,0 +1,39 @@
+@model BLL.App.DTO.FoodItem
+
+@{
+    ViewData["Title"] = @Resources.Views.Shared._Layout.Delete;
+}
+
+<h1>@Resources.Views.Shared._Layout.Delete</h1>
+
+<h3>@Resources.Views.Shared._Layout.ConfirmDelete</h3>
+<div>
+    <h4>@Resources.Views.Shared._Layout.FoodItem</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.StandardUnit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.StandardUnit!.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Category!.Title)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="@Resources.Views.Shared._Layout.Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">@Resources.Views.Shared._Layout.Index</a>
+    </form>
+</div>
